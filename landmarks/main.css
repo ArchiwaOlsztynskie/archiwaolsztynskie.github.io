@@ -1,0 +1,46 @@
+:root {
+    --cellSize: 4rem;
+    --cellGap: 0.4rem;
+    --cellGapCalced: calc(var(--cellBorderWidth) + var(--cellGap));
+    --cellBorderWidth: 0.2rem;
+    /**/
+    --gridColumns: 4;
+    --gridRows: 4;
+}
+
+body {
+    margin: calc(var(--cellBorderWidth) + var(--cellBorderWidth));
+    font-family: "Montserrat", "DejaVu Sans", "Bahnschrift", "Arial", sans-serif;
+    font-weight:800;
+    font-size: 28px;
+}
+
+.gridContainer {
+    display: grid;
+    grid-template-columns: repeat(var(--gridColumns), var(--cellSize));
+    grid-template-rows: repeat(var(--gridRows), var(--cellSize));
+    grid-column-gap: var(--cellGapCalced);
+    grid-row-gap: var(--cellGapCalced);
+    position: static;
+}
+
+.gridItem {
+    width: var(--cellSize);
+    height: var(--cellSize);
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border: black var(--cellBorderWidth) solid;
+}
+
+.disabled {
+    display: none !important;
+}
+
+.mapContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
